@@ -70,7 +70,24 @@ console.log(mult);
 const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
 const toRemove = ["cat", "dog"];
 
-function filterOut() {}
+function filterOut(arr, arrToRemove) {
+  let newArr = [];
+
+  if (!arr.length) {
+    return null;
+  }
+
+  if (!arrToRemove.length) {
+    return arr;
+  }
+
+  arr.forEach((el) => {
+    if (!arrToRemove.includes(el)) {
+      newArr.push(el);
+    }
+  });
+  return newArr;
+}
 
 // Iteration 5 | Unique Arrays
 const duplicateWords = [
@@ -87,7 +104,16 @@ const duplicateWords = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (!arr.length) {
+    return null;
+  }
+  const set = new Set(arr);
+  const newArr = Array.from(set);
+  return newArr;
+}
+const uniqueArr = uniquifyArray(duplicateWords)
+console.log(uniqueArr)
 
 // Bonus: Iteration 6 | Product of Adjacent Numbers
 const matrix = [
