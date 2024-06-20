@@ -31,11 +31,23 @@ function howManyTimes(wordsArr, word) {
   }
 }
 
-const words = howManyTimes(repeatedWords, "matter")
-console.log(words)
+const words = howManyTimes(repeatedWords, "matter");
+console.log(words);
 
 // Iteration 2 | Number Sequence
-function createSequence() {}
+function createSequence(num) {
+  let arr = [];
+  if (!num) {
+    return arr;
+  }
+  for (i = 0; i <= num; i++) {
+    arr.push(i);
+  }
+  return arr;
+}
+
+const sequence = createSequence(5);
+console.log(sequence);
 
 // Iteration 3 | Multiply for Each
 const numbers = [1, 2, 5, 10, 13, 50];
