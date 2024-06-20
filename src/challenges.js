@@ -112,8 +112,8 @@ function uniquifyArray(arr) {
   const newArr = Array.from(set);
   return newArr;
 }
-const uniqueArr = uniquifyArray(duplicateWords)
-console.log(uniqueArr)
+const uniqueArr = uniquifyArray(duplicateWords);
+console.log(uniqueArr);
 
 // Bonus: Iteration 6 | Product of Adjacent Numbers
 const matrix = [
@@ -181,4 +181,28 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let maxProduct = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (j < matrix[i].length - 3) {
+        let rightProduct =
+          matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        maxProduct = Math.max(maxProduct, rightProduct);
+      }
+
+      if (i < matrix.length - 3) {
+        let downProduct =
+          matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+
+        maxProduct = Math.max(maxProduct, downProduct);
+      }
+    }
+  }
+
+  return maxProduct;
+}
+
+const matrixProduct = greatestProduct(matrix);
+console.log(matrixProduct);
